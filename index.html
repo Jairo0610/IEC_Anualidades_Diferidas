@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Anualidades Diferidas</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/javascript/app.js"></script>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
     <!-- Navbar -->
@@ -169,27 +170,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Toggle del menú móvil
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const menuIcon = document.getElementById('menuIcon');
-            const closeIcon = document.getElementById('closeIcon');
-            
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        });
-        
-        // Cerrar menú al hacer click en un enlace
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobileMenu').classList.add('hidden');
-                document.getElementById('menuIcon').classList.remove('hidden');
-                document.getElementById('closeIcon').classList.add('hidden');
-            });
-        });
-    </script>
 </body>
 </html>
