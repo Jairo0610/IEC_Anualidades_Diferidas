@@ -1,0 +1,657 @@
+/* ==========================================
+   RESET Y BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(to bottom right, #eff6ff, #e0e7ff);
+    min-height: 100vh;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ==========================================
+   UTILIDADES
+   ========================================== */
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.nav-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+.nav-menu-desktop {
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #374151;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-link:hover {
+    color: #4f46e5;
+    background-color: #eef2ff;
+}
+
+.nav-toggle {
+    display: block;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: #374151;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.menu-button:hover,
+.menu-button:focus {
+    color: #4f46e5;
+    outline: none;
+}
+
+.menu-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.nav-menu-mobile {
+    background-color: #f9fafb;
+}
+
+.mobile-menu-content {
+    padding: 0.5rem 0.5rem 0.75rem;
+}
+
+.mobile-link {
+    display: block;
+    color: #374151;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: color 0.3s, background-color 0.3s;
+    margin-bottom: 0.25rem;
+}
+
+.mobile-link:hover {
+    color: #4f46e5;
+    background-color: #eef2ff;
+}
+
+/* ==========================================
+   HERO SECTION (Página Principal)
+   ========================================== */
+.hero-section {
+    padding: 5rem 0;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+.hero-accent {
+    color: #4f46e5;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: #4f46e5;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.hero-button:hover {
+    background-color: #4338ca;
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   INFO SECTION (Página Principal)
+   ========================================== */
+.info-section {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.section-divider {
+    width: 6rem;
+    height: 0.25rem;
+    background-color: #4f46e5;
+    margin: 0 auto;
+}
+
+.info-grid {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.info-card {
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.info-card-1 {
+    background: linear-gradient(to bottom right, #eef2ff, #dbeafe);
+}
+
+.info-card-2 {
+    background: linear-gradient(to bottom right, #faf5ff, #eef2ff);
+}
+
+.info-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.info-card-text {
+    color: #374151;
+    line-height: 1.75;
+}
+
+.info-list {
+    list-style: none;
+    color: #374151;
+}
+
+.info-list-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.bullet {
+    color: #4f46e5;
+    margin-right: 0.5rem;
+    font-weight: 700;
+}
+
+/* ==========================================
+   CALCULATIONS SECTION (Página Principal)
+   ========================================== */
+.calculations-section {
+    padding: 4rem 0;
+    background: linear-gradient(to bottom right, #f9fafb, #dbeafe);
+}
+
+.calculations-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.calc-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+.calc-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-0.25rem);
+}
+
+.calc-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.calc-icon-indigo {
+    background-color: #e0e7ff;
+}
+
+.calc-icon-purple {
+    background-color: #f3e8ff;
+}
+
+.calc-icon-blue {
+    background-color: #dbeafe;
+}
+
+.calc-icon-green {
+    background-color: #d1fae5;
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.calc-icon-indigo .icon {
+    color: #4f46e5;
+}
+
+.calc-icon-purple .icon {
+    color: #9333ea;
+}
+
+.calc-icon-blue .icon {
+    color: #2563eb;
+}
+
+.calc-icon-green .icon {
+    color: #059669;
+}
+
+.calc-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.calc-card-description {
+    color: #4b5563;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+/* ==========================================
+   CALCULATOR SECTION (Página Calculadora)
+   ========================================== */
+.calculator-section {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.calculator-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.title-divider {
+    width: 6rem;
+    height: 0.25rem;
+    background-color: #4f46e5;
+    margin: 0 auto 1.5rem;
+}
+
+.calculator-description {
+    color: #4b5563;
+    max-width: 32rem;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   SELECTOR DE TIPO DE CÁLCULO
+   ========================================== */
+.calculator-selector {
+    max-width: 64rem;
+    margin: 0 auto 2rem;
+}
+
+.selector-label {
+    display: block;
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+}
+
+.selector-buttons {
+    display: grid;
+    gap: 1rem;
+}
+
+.calc-type-btn {
+    background-color: #e5e7eb;
+    color: #374151;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.calc-type-btn:hover {
+    background-color: #d1d5db;
+}
+
+.calc-type-btn.active {
+    background-color: #4f46e5;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================
+   FORMULARIO
+   ========================================== */
+.calculator-form-container {
+    max-width: 64rem;
+    margin: 0 auto;
+    background: linear-gradient(to bottom right, #f9fafb, #dbeafe);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+}
+
+.calc-form {
+    display: block;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+.form-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    display: block;
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-input,
+select.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-input:focus,
+select.form-input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-submit {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    color: white;
+}
+
+.btn-indigo {
+    background-color: #4f46e5;
+}
+
+.btn-indigo:hover {
+    background-color: #4338ca;
+}
+
+.btn-purple {
+    background-color: #9333ea;
+}
+
+.btn-purple:hover {
+    background-color: #7e22ce;
+}
+
+.btn-blue {
+    background-color: #2563eb;
+}
+
+.btn-blue:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-green {
+    background-color: #059669;
+}
+
+.btn-green:hover {
+    background-color: #047857;
+}
+
+/* ==========================================
+   RESULTADOS
+   ========================================== */
+.results-container {
+    max-width: 64rem;
+    margin: 2rem auto 0;
+}
+
+.results-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    border-left: 4px solid #4f46e5;
+}
+
+.results-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.results-content {
+    color: #374151;
+}
+
+.results-content > * {
+    margin-bottom: 0.75rem;
+}
+
+.clear-button {
+    margin-top: 1.5rem;
+    background-color: #6b7280;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.clear-button:hover {
+    background-color: #4b5563;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+    background-color: #111827;
+    color: white;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-title {
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+}
+
+.footer-subtitle {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+/* ==========================================
+   MEDIA QUERIES - RESPONSIVE
+   ========================================== */
+
+/* Tablets pequeños (640px+) */
+@media (min-width: 640px) {
+    .nav-title {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .mobile-menu-content {
+        padding: 0.5rem 0.75rem 0.75rem;
+    }
+}
+
+/* Tablets (768px+) */
+@media (min-width: 768px) {
+    .nav-menu-desktop {
+        display: block;
+    }
+    
+    .nav-toggle {
+        display: none;
+    }
+    
+    .nav-menu-mobile {
+        display: none !important;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .calculator-title {
+        font-size: 2.25rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .calculations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .selector-buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .hero-title {
+        font-size: 3.75rem;
+    }
+    
+    .calculator-title {
+        font-size: 2.5rem;
+    }
+    
+    .calculations-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
