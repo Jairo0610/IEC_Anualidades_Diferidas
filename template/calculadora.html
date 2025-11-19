@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Anualidades Diferidas</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="../Estilo/style.css">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
@@ -74,6 +75,9 @@
                     <button id="btnPeriodos" class="calc-type-btn">
                         Calcular Períodos
                     </button>
+                    <button id="btnTasa" class="calc-type-btn">
+                        Calcular Tasa
+                    </button>
                 </div>
             </div>
 
@@ -89,21 +93,25 @@
                             <div class="form-group">
                                 <label class="form-label">Renta (R):</label>
                                 <input type="number" id="montorenta" class="form-input" placeholder="Ingrese la renta" step="0.01">
+                                <span class="error-message" id="error-montorenta"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Tasa de Interés (%):</label>
                                 <input type="number" id="montotasa" class="form-input" placeholder="Ej: 0.05 para 5%" step="0.01">
+                                <span class="error-message" id="error-montotasa"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Número de Períodos (n):</label>
                                 <input type="number" id="montoperiodos" class="form-input" placeholder="Número de pagos">
+                                <span class="error-message" id="error-montoperiodos"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Períodos Diferidos (k):</label>
                                 <input type="number" id="montodiferidos" class="form-input" placeholder="Períodos de diferimiento">
+                                <span class="error-message" id="error-montodiferidos"></span>
                             </div>
                         </div>
                         
@@ -120,6 +128,7 @@
                             <div class="form-group">
                                 <label class="form-label">Monto (M) o Capital (C):</label>
                                 <input type="number" id="rentamonto" class="form-input" placeholder="Valor futuro o presente" step="0.01">
+                                <span class="error-message" id="error-rentamonto"></span>
                             </div>
                             
                             <div class="form-group">
@@ -132,17 +141,20 @@
                             
                             <div class="form-group">
                                 <label class="form-label">Tasa de Interés (%):</label>
-                                <input type="number" id="rentatasa" class="form-input" placeholder="Ej: 5 para 5%" step="0.01">
+                                <input type="number" id="rentatasa" class="form-input" placeholder="Ej: 0.05 para 5%" step="0.01">
+                                <span class="error-message" id="error-rentatasa"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Número de Períodos (n):</label>
                                 <input type="number" id="rentaperiodos" class="form-input" placeholder="Número de pagos">
+                                <span class="error-message" id="error-rentaperiodos"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Períodos Diferidos (k):</label>
                                 <input type="number" id="rentadiferidos" class="form-input" placeholder="Períodos de diferimiento">
+                                <span class="error-message" id="error-rentadiferidos"></span>
                             </div>
                         </div>
                         
@@ -159,21 +171,25 @@
                             <div class="form-group">
                                 <label class="form-label">Renta (R):</label>
                                 <input type="number" id="capitalrenta" class="form-input" placeholder="Ingrese la renta" step="0.01">
+                                <span class="error-message" id="error-capitalrenta"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Tasa de Interés (%):</label>
-                                <input type="number" id="capitaltasa" class="form-input" placeholder="Ej: 5 para 5%" step="0.01">
+                                <input type="number" id="capitaltasa" class="form-input" placeholder="Ej: 0.05 para 5%" step="0.01">
+                                <span class="error-message" id="error-capitaltasa"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Número de Períodos (n):</label>
                                 <input type="number" id="capitalperiodos" class="form-input" placeholder="Número de pagos">
+                                <span class="error-message" id="error-capitalperiodos"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Períodos Diferidos (k):</label>
                                 <input type="number" id="capitaldiferidos" class="form-input" placeholder="Períodos de diferimiento">
+                                <span class="error-message" id="error-capitaldiferidos"></span>
                             </div>
                         </div>
                         
@@ -190,11 +206,13 @@
                             <div class="form-group">
                                 <label class="form-label">Renta (R):</label>
                                 <input type="number" id="periodosrenta" class="form-input" placeholder="Ingrese la renta" step="0.01">
+                                <span class="error-message" id="error-periodosrenta"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Monto (M) o Capital (C):</label>
                                 <input type="number" id="periodosmonto" class="form-input" placeholder="Valor futuro o presente" step="0.01">
+                                <span class="error-message" id="error-periodosmonto"></span>
                             </div>
                             
                             <div class="form-group">
@@ -207,17 +225,62 @@
                             
                             <div class="form-group">
                                 <label class="form-label">Tasa de Interés (%):</label>
-                                <input type="number" id="periodostasa" class="form-input" placeholder="Ej: 5 para 5%" step="0.01">
+                                <input type="number" id="periodostasa" class="form-input" placeholder="Ej: 0.05 para 5%" step="0.01">
+                                <span class="error-message" id="error-periodostasa"></span>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Períodos Diferidos (k):</label>
                                 <input type="number" id="periodosdiferidos" class="form-input" placeholder="Períodos de diferimiento">
+                                <span class="error-message" id="error-periodosdiferidos"></span>
                             </div>
                         </div>
                         
                         <button type="button" id="btnCalcularPeriodos" class="form-submit btn-green">
                             Calcular Períodos
+                        </button>
+                    </div>
+
+                    <!-- Formulario para Calcular Tasa -->
+                    <div id="formTasa" class="calc-form hidden">
+                        <h4 class="form-title">Calcular Tasa de Interés</h4>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Renta (R):</label>
+                                <input type="number" id="tasarenta" class="form-input" placeholder="Ingrese la renta" step="0.01">
+                                <span class="error-message" id="error-tasarenta"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Monto (M) o Capital (C):</label>
+                                <input type="number" id="tasamonto" class="form-input" placeholder="Valor futuro o presente" step="0.01">
+                                <span class="error-message" id="error-tasamonto"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Tipo de Valor:</label>
+                                <select id="tasatipo" class="form-input">
+                                    <option value="monto">Monto (Valor Futuro)</option>
+                                    <option value="capital">Capital (Valor Presente)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Número de Períodos (n):</label>
+                                <input type="number" id="tasaperiodos" class="form-input" placeholder="Número de pagos">
+                                <span class="error-message" id="error-tasaperiodos"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Períodos Diferidos (k):</label>
+                                <input type="number" id="tasadiferidos" class="form-input" placeholder="Períodos de diferimiento">
+                                <span class="error-message" id="error-tasadiferidos"></span>
+                            </div>
+                        </div>
+                        
+                        <button type="button" id="btnCalcularTasa" class="form-submit btn-green">
+                            Calcular Tasa
                         </button>
                     </div>
 
@@ -227,7 +290,9 @@
             <!-- Área de Resultados -->
             <div id="resultadosArea" class="results-container hidden">
                 <div class="results-card">
-                    <h4 class="results-title">Resultados</h4>
+                    <h3 class="results-title">Resultados</h3>
+                    <h4 style="color: black;">Fórmula:</h4>
+
                     <div id="resultadosContenido" class="results-content">
                         <!-- Aquí se mostrarán los resultados mediante JavaScript -->
                     </div>
