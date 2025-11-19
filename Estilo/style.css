@@ -1,7 +1,21 @@
 /* ==========================================
    RESET Y BASE
    ========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --fondo: #FFF5DA;
+    --fondo3: #F8E8C7;
+    --fondo2: #423834;
+    --textoSec: #FFF5DA;
+    --textoPrin: #3D5954;
+    --boton: #849658;
+    --acento: #3D5954;
+    --gris: #C0C0C0;
+    --cafe: #947563;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +23,10 @@
 }
 
 body {
-    font-family: "Geologica", sans-serif;
-    background: white;
+    font-family: "Montserrat", sans-serif;
+    background: var(--fondo);
     min-height: 100vh;
-    color: #E0E0E0;
+    color: var(--textoPrincipal);
     line-height: 1.6;
 }
 
@@ -33,7 +47,7 @@ body {
    NAVBAR
    ========================================== */
 .navbar {
-    background-color: #1A2C3F;
+    background-color: var(--acento);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
@@ -47,7 +61,7 @@ body {
 .nav-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #C8A25D;
+    color: var(--textoSec);
 }
 
 .nav-menu-desktop {
@@ -60,7 +74,7 @@ body {
 }
 
 .nav-link {
-    color: #E0E0E0;
+    color: var(--textoSec);
     padding: 0.5rem 0.75rem;
     text-decoration: none;
     font-weight: 500;
@@ -69,7 +83,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #C8A25D;
+    color: var(--gris);
     text-decoration: underline;
 }
 
@@ -80,14 +94,14 @@ body {
 .menu-button {
     background: none;
     border: none;
-    color: #E0E0E0;
+    color: var(--fondo);
     cursor: pointer;
     transition: color 0.3s;
 }
 
 .menu-button:hover,
 .menu-button:focus {
-    color: #C8A25D;
+    color: var(--gris);
     outline: none;
 }
 
@@ -97,7 +111,7 @@ body {
 }
 
 .nav-menu-mobile {
-    background-color: #1A2C3F;
+    background-color: var(--acento);
 }
 
 .mobile-menu-content {
@@ -106,7 +120,7 @@ body {
 
 .mobile-link {
     display: block;
-    color: #E0E0E0;
+    color: var(--textoSec);
     padding: 0.5rem 0.75rem;
     text-decoration: none;
     font-weight: 500;
@@ -116,7 +130,7 @@ body {
 }
 
 .mobile-link:hover {
-    color: #C8A25D;
+    color: var(--gris);
     text-decoration: underline;
 }
 
@@ -134,17 +148,19 @@ body {
 .hero-title {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #E0E0E0;
+    color: var(--textoPrin);
     margin-bottom: 1.5rem;
 }
 
 .hero-accent {
-    color: #C8A25D;
+    color: var(--boton);
 }
 
 .hero-description {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
     font-size: 1.25rem;
-    color: #E0E0E0;
+    color: var(--fondo2);
     margin-bottom: 2rem;
     max-width: 48rem;
     margin-left: auto;
@@ -153,8 +169,8 @@ body {
 
 .hero-button {
     display: inline-block;
-    background-color: #C8A25D;
-    color: #1A2C3F;
+    background-color: var(--boton);
+    color: var(--textoSec);
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
     font-weight: 700;
@@ -164,7 +180,7 @@ body {
 }
 
 .hero-button:hover {
-    background-color: #B58E4A;
+    background-color: var(--boton);
     transform: scale(1.05);
 }
 
@@ -173,7 +189,7 @@ body {
    ========================================== */
 .info-section {
     padding: 4rem 0;
-    background-color: #2C3E50;
+    background-color: var(--textoPrin);
 }
 
 .section-header {
@@ -182,16 +198,32 @@ body {
 }
 
 .section-title {
+    font-family: "Montserrat", sans-serif;
     font-size: 1.875rem;
-    font-weight: 700;
-    color: #E0E0E0;
+    font-weight: 800;
+    color: var(--textoSec);
+    margin-bottom: 1rem;
+}
+
+.section-title2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: var(--fondo2);
     margin-bottom: 1rem;
 }
 
 .section-divider {
     width: 6rem;
     height: 0.25rem;
-    background-color: #C8A25D;
+    background-color: var(--boton);
+    margin: 0 auto;
+}
+
+.section-divider2 {
+    width: 6rem;
+    height: 0.25rem;
+    background-color: var(--fondo2);
     margin: 0 auto;
 }
 
@@ -208,38 +240,42 @@ body {
 }
 
 .info-card-1 {
-    background: linear-gradient(to bottom right, #eef2ff, #dbeafe);
+    background-color: var(--fondo3);
 }
 
 .info-card-2 {
-    background: linear-gradient(to bottom right, #faf5ff, #eef2ff);
+    background-color: var(--fondo3);
 }
 
 .info-card-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #3A6B3B;
+    color: var(--fondo2);
     margin-bottom: 1rem;
 }
 
 .info-card-text {
-    color: #374151;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    color: var(--fondo2);
     line-height: 1.75;
 }
 
 .info-list {
     list-style: none;
-    color: #374151;
+    color: var(--fondo2);
 }
 
 .info-list-item {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
     display: flex;
     align-items: flex-start;
     margin-bottom: 0.5rem;
 }
 
 .bullet {
-    color: #3A6B3B;
+    color: var(--fondo2);
     margin-right: 0.5rem;
     font-weight: 700;
 }
@@ -249,7 +285,7 @@ body {
    ========================================== */
 .calculations-section {
     padding: 4rem 0;
-    background-color: #1A2C3F;
+    background-color: var(--fondo);
 }
 
 .calculations-grid {
@@ -258,9 +294,10 @@ body {
 }
 
 .calc-card {
-    background-color: #2C3E50;
+    background-color: white;
     padding: 1.5rem;
     border-radius: 0.75rem;
+    border: var(--acento) 1px solid;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     transition: all 0.3s;
 }
@@ -281,19 +318,19 @@ body {
 }
 
 .calc-icon-indigo {
-    background-color: #E5D9DF;
+    background-color: var(--acento);
 }
 
 .calc-icon-purple {
-    background-color: #F7E9DE;
+    background-color: var(--acento);
 }
 
 .calc-icon-blue {
-    background-color: #D9E6F2;
+    background-color: var(--acento);
 }
 
 .calc-icon-green {
-    background-color: #E1F2E7;
+    background-color: var(--acento);
 }
 
 .icon {
@@ -302,33 +339,36 @@ body {
 }
 
 .calc-icon-indigo .icon {
-    color: #8D6A9B;
+    color: var(--textoSec);
 }
 
 .calc-icon-purple .icon {
-    color: #B38B67;
+    color: var(--textoSec);
 }
 
 .calc-icon-blue .icon {
-    color: #7C98B6;
+    color: var(--textoSec);
 }
 
 .calc-icon-green .icon {
-    color: #6AB78D;
+    color: var(--textoSec);
 }
 
 .calc-card-title {
+    font-family: "Montserrat", sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #E0E0E0;
+    color: var(--fondo2);
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
 .calc-card-description {
-    color: #E0E0E0;
+    font-family: "Open Sans", sans-serif;
+    color: var(--acento);
     text-align: center;
     font-size: 0.875rem;
+    font-weight: 600;
 }
 
 /* ==========================================
@@ -336,7 +376,7 @@ body {
    ========================================== */
 .calculator-section {
     padding: 4rem 0;
-    background-color: white;
+    background-color: var(--fondo);
 }
 
 .calculator-header {
@@ -346,20 +386,23 @@ body {
 
 .calculator-title {
     font-size: 1.875rem;
-    font-weight: 700;
-    color: #111827;
+    font-weight: 800;
+    color: var(--fondo2);
+    font-family: "Montserrat", sans-serif;
     margin-bottom: 1rem;
 }
 
 .title-divider {
     width: 6rem;
     height: 0.25rem;
-    background-color: #4f46e5;
+    background-color: var(--fondo2);
     margin: 0 auto 1.5rem;
 }
 
 .calculator-description {
-    color: #4b5563;
+    color: var(--textoPrin);
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
     max-width: 32rem;
     margin: 0 auto;
 }
@@ -374,7 +417,7 @@ body {
 
 .selector-label {
     display: block;
-    color: #374151;
+    color: var(--fondo2);
     font-weight: 600;
     margin-bottom: 0.75rem;
     font-size: 1.125rem;
@@ -386,8 +429,8 @@ body {
 }
 
 .calc-type-btn {
-    background-color: #e5e7eb;
-    color: #374151;
+    background-color: var(--boton);
+    color: var(--textoSec);
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-weight: 600;
@@ -398,12 +441,12 @@ body {
 }
 
 .calc-type-btn:hover {
-    background-color: #d1d5db;
+    background-color: var(--acento);
 }
 
 .calc-type-btn.active {
-    background-color: #4f46e5;
-    color: white;
+    background-color: var(--acento);
+    color: var(--textoSec);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
@@ -413,7 +456,7 @@ body {
 .calculator-form-container {
     max-width: 64rem;
     margin: 0 auto;
-    background: linear-gradient(to bottom right, #f9fafb, #dbeafe);
+    background: white;
     border-radius: 0.75rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     padding: 2rem;
@@ -426,7 +469,7 @@ body {
 .form-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--fondo2);
     margin-bottom: 1.5rem;
 }
 
@@ -443,7 +486,7 @@ body {
 
 .form-label {
     display: block;
-    color: #374151;
+    color: var(--fondo2);
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
@@ -452,7 +495,7 @@ body {
 select.form-input {
     width: 100%;
     padding: 0.75rem 1rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--fondo2);
     border-radius: 0.5rem;
     font-size: 1rem;
     transition: all 0.3s;
@@ -461,7 +504,7 @@ select.form-input {
 .form-input:focus,
 select.form-input:focus {
     outline: none;
-    border-color: #4f46e5;
+    border-color: var(--boton);
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
@@ -475,39 +518,46 @@ select.form-input:focus {
     transition: all 0.3s;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     font-size: 1rem;
-    color: white;
+    color: var(--textoSec);
 }
 
 .btn-indigo {
-    background-color: #4f46e5;
+    background-color: var(--acento);
 }
 
 .btn-indigo:hover {
-    background-color: #4338ca;
+    background-color: var(--boton);
+    color: var(--fondo);
 }
 
 .btn-purple {
-    background-color: #9333ea;
+    background-color: var(--acento);
 }
 
 .btn-purple:hover {
-    background-color: #7e22ce;
+    background-color: var(--boton);
+        color: var(--fondo);
+
 }
 
 .btn-blue {
-    background-color: #2563eb;
+    background-color: var(--acento);
 }
 
 .btn-blue:hover {
-    background-color: #1d4ed8;
+    background-color: var(--boton);
+        color: var(--fondo);
+
 }
 
 .btn-green {
-    background-color: #059669;
+    background-color: var(--acento);
 }
 
 .btn-green:hover {
-    background-color: #047857;
+    background-color: var(--boton);
+        color: var(--fondo);
+
 }
 
 /* ==========================================
@@ -523,18 +573,18 @@ select.form-input:focus {
     border-radius: 0.75rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     padding: 2rem;
-    border-left: 4px solid #4f46e5;
+    border-left: 4px solid var(--fondo2);
 }
 
 .results-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--fondo2);
     margin-bottom: 1rem;
 }
 
 .results-content {
-    color: #374151;
+    color: var(--textoPrin);
 }
 
 .results-content>* {
@@ -543,8 +593,8 @@ select.form-input:focus {
 
 .clear-button {
     margin-top: 1.5rem;
-    background-color: #6b7280;
-    color: white;
+    background-color: var(--boton);
+    color: var(--fondo);
     padding: 0.5rem 1.5rem;
     border-radius: 0.5rem;
     font-weight: 600;
@@ -554,14 +604,14 @@ select.form-input:focus {
 }
 
 .clear-button:hover {
-    background-color: #4b5563;
+    background-color: var(--acento);
 }
 
 /* ==========================================
    FOOTER
    ========================================== */
 .footer {
-    background-color: #111827;
+    background-color: var(--textoPrin);
     color: white;
     padding: 2rem 0;
 }
@@ -571,12 +621,12 @@ select.form-input:focus {
 }
 
 .footer-title {
-    color: #9ca3af;
+    color: white;
     margin-bottom: 0.5rem;
 }
 
 .footer-subtitle {
-    color: #6b7280;
+    color: white;
     font-size: 0.875rem;
 }
 
