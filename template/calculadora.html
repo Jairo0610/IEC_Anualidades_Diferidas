@@ -79,7 +79,6 @@
 
             <!-- Formulario de Cálculo -->
             <div class="calculator-form-container">
-            <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl shadow-lg p-8 mb-8">
                 <form id="calculadoraForm">
                     
                     <!-- Formulario para Calcular Monto -->
@@ -94,10 +93,7 @@
                             
                             <div class="form-group">
                                 <label class="form-label">Tasa de Interés (%):</label>
-                                <input type="number" id="montotasa" class="form-input" placeholder="Ej: 5 para 5%" step="0.01">
-                            <div>
-                                <label class="block text-gray-700 font-semibold mb-2">Tasa de Interés (%):</label>
-                                <input type="number" id="montotasa" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Ej: 0.05 para 5%" step="0.01">
+                                <input type="number" id="montotasa" class="form-input" placeholder="Ej: 0.05 para 5%" step="0.01">
                             </div>
                             
                             <div class="form-group">
@@ -111,8 +107,7 @@
                             </div>
                         </div>
                         
-                        <button type="button" class="form-submit btn-indigo">
-                        <button type="button" id="btnCalcularMonto" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-lg">
+                        <button type="button" id="btnCalcularMonto" class="form-submit btn-indigo">
                             Calcular Monto
                         </button>
                     </div>
@@ -151,8 +146,7 @@
                             </div>
                         </div>
                         
-                        <button type="button" class="form-submit btn-purple">
-                        <button type="button" id="btnCalcularRenta" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition shadow-lg">
+                        <button type="button" id="btnCalcularRenta" class="form-submit btn-purple">
                             Calcular Renta
                         </button>
                     </div>
@@ -183,8 +177,7 @@
                             </div>
                         </div>
                         
-                        <button type="button"  class="form-submit btn-blue">
-                        <button type="button" id="btnCalcularCapital" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg">
+                        <button type="button" id="btnCalcularCapital" class="form-submit btn-blue">
                             Calcular Capital
                         </button>
                     </div>
@@ -223,14 +216,14 @@
                             </div>
                         </div>
                         
-                        <button type="button"  class="form-submit btn-green">
-                        <button type="button" id="btnCalcularPeriodos" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-lg">
+                        <button type="button" id="btnCalcularPeriodos" class="form-submit btn-green">
                             Calcular Períodos
                         </button>
                     </div>
 
                 </form>
             </div>
+
             <!-- Área de Resultados -->
             <div id="resultadosArea" class="results-container hidden">
                 <div class="results-card">
@@ -240,8 +233,7 @@
                     </div>
                     
                     <!-- Botón para limpiar -->
-                    <button onclick="limpiarCalculadora()" class="clear-button">
-                    <button id="btnLimpiar" class="mt-6 bg-gray-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-gray-600 transition">
+                    <button id="btnLimpiar" class="clear-button">
                         Limpiar y Nueva Consulta
                     </button>
                 </div>
