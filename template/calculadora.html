@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Anualidades Diferidas</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="Estilo/style.css">
+    <link rel="stylesheet" href="../Estilo/style.css">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
@@ -146,7 +146,7 @@
                             </div>
                         </div>
                         
-                        <button type="button" onclick="calcularRenta()" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition shadow-lg">
+                        <button type="button" id="btnCalcularRenta" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition shadow-lg">
                             Calcular Renta
                         </button>
                     </div>
@@ -177,7 +177,7 @@
                             </div>
                         </div>
                         
-                        <button type="button" onclick="calcularCapital()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg">
+                        <button type="button" id="btnCalcularCapital" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg">
                             Calcular Capital
                         </button>
                     </div>
@@ -216,15 +216,12 @@
                             </div>
                         </div>
                         
-                        <button type="button" onclick="calcularPeriodos()" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-lg">
+                        <button type="button" id="btnCalcularPeriodos" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-lg">
                             Calcular Períodos
                         </button>
                     </div>
 
                 </form>
-            </div>
-            <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl shadow-lg p-8 hidden" id="resultado">
-                
             </div>
             <!-- Área de Resultados -->
             <div id="resultadosArea" class="max-w-4xl mx-auto mt-8 hidden">
@@ -235,7 +232,7 @@
                     </div>
                     
                     <!-- Botón para limpiar -->
-                    <button onclick="limpiarCalculadora()" class="mt-6 bg-gray-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-gray-600 transition">
+                    <button id="btnLimpiar" class="mt-6 bg-gray-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-gray-600 transition">
                         Limpiar y Nueva Consulta
                     </button>
                 </div>

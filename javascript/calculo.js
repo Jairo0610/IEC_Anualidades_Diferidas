@@ -16,6 +16,10 @@ document.getElementById('btnPeriodos').addEventListener('click', function() {
 });
 
 document.getElementById("btnCalcularMonto").addEventListener('click', calcularMonto)
+document.getElementById("btnCalcularRenta").addEventListener('click', calcularRenta)
+document.getElementById("btnCalcularCapital").addEventListener('click', calcularCapital)
+document.getElementById("btnCalcularPeriodos").addEventListener('click', calcularPeriodos)
+document.getElementById("btnLimpiar").addEventListener('click', limpiarCalculadora)
 
 function cambiarFormulario(formId, boton) {
     // Ocultar todos los formularios
@@ -55,39 +59,119 @@ function limpiarCalculadora() {
     document.getElementById('resultadosArea').classList.add('hidden');
 }
 
+//CONTENEDOR PARA MOSTRAR LA RESPUESTA
+const resultadosArea = document.getElementById("resultadosArea")
+const resultadosContenido = document.getElementById("resultadosContenido")
+const resultado = document.createElement('h1')
+
+
+//CAMPOS PARA CALCULAR MONTO
 const montoRenta = document.getElementById("montorenta")
 const montoTasa = document.getElementById("montotasa")
 const montoPeriodo = document.getElementById("montoperiodos")
 const montoDiferido = document.getElementById("montodiferidos")
-const contenedorRespuesta = document.getElementById("resultado")
-const resultado = document.createElement('h1')
-// AQUÍ IMPLEMENTARÁS TUS FUNCIONES DE CÁLCULO
+
+//CAMPOS PARA CALCULAR RENTA
+const rentaMonto = document.getElementById("rentamonto")
+const rentaTipo = document.getElementById("rentatipo")
+const rentaTasa = document.getElementById("rentatasa")
+const rentaPeriodos = document.getElementById("rentaperiodos")
+const rentaDiferidos = document.getElementById("rentadiferidos")
+
+//CAMPOS PARA CALCULAR CAPITAL
+const capitalRenta = document.getElementById("capitalrenta")
+const capitalTasa = document.getElementById("capitaltasa")
+const capitalPeriodos = document.getElementById("capitalperiodos")
+const capitalDiferidos = document.getElementById("capitaldiferidos")
+
+//CAMPOS PARA CALCULAR PERIODOS
+const periodosRenta = document.getElementById("periodosrenta")
+const periodosMonto = document.getElementById("periodosmonto")
+const periodosTipo = document.getElementById("periodostipo")
+const periodosTasa = document.getElementById("periodostasa")
+const periodosDiferidos = document.getElementById("periodosdiferidos")
+
+// METODOS PARA LOS CALCULOS
 function calcularMonto() {
-    const r = Number(montoRenta.value)
+    resultado.textContent = ""
+
+    const R = Number(montoRenta.value)
     const i = Number(montoTasa.value)
     const n = Number(montoPeriodo.value)
     const k = Number(montoDiferido.value)
 
-    let monto = r * ((((1 + i) ** n) - 1) / i) * ((1 + i) ** k)
+    let monto = R * ((((1 + i) ** n) - 1) / i) * ((1 + i) ** k)
     monto = monto.toFixed(2)
     resultado.textContent = "El monto es de $" + monto.toString()
-    contenedorRespuesta.appendChild(resultado)
-    contenedorRespuesta.classList.remove("hidden")
-    console.log(monto)
+    resultadosContenido.appendChild(resultado)
+    resultadosArea.classList.remove("hidden")
 }
 
 function calcularRenta() {
-    // Tu código de cálculo aquí
-    console.log('Calculando Renta...');
+    resultado.textContent = ""
+
+    const CM = Number(rentaMonto.value)
+    const i = Number(rentaTasa.value)
+    const n = Number(rentaPeriodos.value)
+    const k = Number(rentaDiferidos.value)
+
+    let renta
+    if (rentaTipo.value == "monto") {
+        renta = CM / ( ( ((1+i)**n-1) / i) * (1+i)**k )
+        renta = renta.toFixed(2)
+        resultado.textContent = "La renta es de $" + renta.toString()
+        resultadosContenido.appendChild(resultado)
+        resultadosArea.classList.remove("hidden")
+    }
+    else if (rentaTipo.value == "capital") {
+        renta = CM / ( ( (1-(1+i)**-n) / i) * (1+i)**-k )
+        renta = renta.toFixed(2)
+        resultado.textContent = "La renta es de $" + renta.toString()
+        resultadosContenido.appendChild(resultado)
+        resultadosArea.classList.remove("hidden")
+    }
 }
 
 function calcularCapital() {
-    // Tu código de cálculo aquí
-    console.log('Calculando Capital...');
+    resultado.textContent = ""
+
+    const R = Number(capitalRenta.value)
+    const i = Number(capitalTasa.value)
+    const n = Number(capitalPeriodos.value)
+    const k = Number(capitalDiferidos.value)
+
+    let capital = R * (((1-(1 + i) **-n)) / i) * ((1 + i) ** -k)
+    capital = capital.toFixed(2)
+    resultado.textContent = "El capital es de $" + capital.toString()
+    resultadosContenido.appendChild(resultado)
+    resultadosArea.classList.remove("hidden")
 }
 
 function calcularPeriodos() {
-    // Tu código de cálculo aquí
-    console.log('Calculando Períodos...');
+    resultado.textContent = ""
+
+    const R = Number(periodosRenta.value)
+    const CM = Number(periodosMonto.value)
+    const k = Number(periodosDiferidos.value)
+    const i = Number(periodosTasa.value)
+
+    let periodos
+
+    if(periodosTipo.value == "monto"){
+        periodos = 1 + i * (CM / (R * (1+i)**k))
+        periodos = Math.log(periodos) / Math.log(1+i)
+        periodos = Math.round(periodos)
+        resultado.textContent = "El numero de periodos es" + periodos.toString()
+        resultadosContenido.appendChild(resultado)
+        resultadosArea.classList.remove("hidden")
+    }
+    else if(periodosTipo.value == "capital" ){
+        periodos = 1 - i * (CM / (R * (1+i)**(-k)))
+        periodos = -Math.log(periodos) / Math.log(1+i)
+        periodos = Math.round(periodos)
+        resultado.textContent = "El numero de periodos es " + periodos.toString()
+        resultadosContenido.appendChild(resultado)
+        resultadosArea.classList.remove("hidden")
+    }
 }
 
