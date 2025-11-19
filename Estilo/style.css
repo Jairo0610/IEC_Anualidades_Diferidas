@@ -1,6 +1,7 @@
 /* ==========================================
    RESET Y BASE
    ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -8,10 +9,10 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(to bottom right, #eff6ff, #e0e7ff);
+    font-family: "Geologica", sans-serif;
+    background: #1A2C3F;
     min-height: 100vh;
-    color: #1f2937;
+    color: #E0E0E0;
     line-height: 1.6;
 }
 
@@ -32,7 +33,7 @@ body {
    NAVBAR
    ========================================== */
 .navbar {
-    background-color: white;
+    background-color: #1A2C3F;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
@@ -46,7 +47,7 @@ body {
 .nav-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #4f46e5;
+    color: #C8A25D;
 }
 
 .nav-menu-desktop {
@@ -59,7 +60,7 @@ body {
 }
 
 .nav-link {
-    color: #374151;
+    color: #E0E0E0;
     padding: 0.5rem 0.75rem;
     text-decoration: none;
     font-weight: 500;
@@ -68,8 +69,8 @@ body {
 }
 
 .nav-link:hover {
-    color: #4f46e5;
-    background-color: #eef2ff;
+    color: #C8A25D;
+    text-decoration: underline;
 }
 
 .nav-toggle {
@@ -79,14 +80,14 @@ body {
 .menu-button {
     background: none;
     border: none;
-    color: #374151;
+    color: #E0E0E0;
     cursor: pointer;
     transition: color 0.3s;
 }
 
 .menu-button:hover,
 .menu-button:focus {
-    color: #4f46e5;
+    color: #C8A25D;
     outline: none;
 }
 
@@ -96,7 +97,7 @@ body {
 }
 
 .nav-menu-mobile {
-    background-color: #f9fafb;
+    background-color: #1A2C3F;
 }
 
 .mobile-menu-content {
@@ -105,7 +106,7 @@ body {
 
 .mobile-link {
     display: block;
-    color: #374151;
+    color: #E0E0E0;
     padding: 0.5rem 0.75rem;
     text-decoration: none;
     font-weight: 500;
@@ -115,8 +116,8 @@ body {
 }
 
 .mobile-link:hover {
-    color: #4f46e5;
-    background-color: #eef2ff;
+    color: #C8A25D;
+    text-decoration: underline;
 }
 
 /* ==========================================
@@ -133,17 +134,17 @@ body {
 .hero-title {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #111827;
+    color: #E0E0E0;
     margin-bottom: 1.5rem;
 }
 
 .hero-accent {
-    color: #4f46e5;
+    color: #C8A25D;
 }
 
 .hero-description {
     font-size: 1.25rem;
-    color: #4b5563;
+    color: #E0E0E0;
     margin-bottom: 2rem;
     max-width: 48rem;
     margin-left: auto;
@@ -152,18 +153,18 @@ body {
 
 .hero-button {
     display: inline-block;
-    background-color: #4f46e5;
-    color: white;
+    background-color: #C8A25D;
+    color: #1A2C3F;
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     transition: all 0.3s;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .hero-button:hover {
-    background-color: #4338ca;
+    background-color: #B58E4A;
     transform: scale(1.05);
 }
 
@@ -172,7 +173,7 @@ body {
    ========================================== */
 .info-section {
     padding: 4rem 0;
-    background-color: white;
+    background-color: #2C3E50;
 }
 
 .section-header {
@@ -183,14 +184,14 @@ body {
 .section-title {
     font-size: 1.875rem;
     font-weight: 700;
-    color: #111827;
+    color: #E0E0E0;
     margin-bottom: 1rem;
 }
 
 .section-divider {
     width: 6rem;
     height: 0.25rem;
-    background-color: #4f46e5;
+    background-color: #C8A25D;
     margin: 0 auto;
 }
 
@@ -217,7 +218,7 @@ body {
 .info-card-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: #3A6B3B;
     margin-bottom: 1rem;
 }
 
@@ -238,7 +239,7 @@ body {
 }
 
 .bullet {
-    color: #4f46e5;
+    color: #3A6B3B;
     margin-right: 0.5rem;
     font-weight: 700;
 }
@@ -248,7 +249,7 @@ body {
    ========================================== */
 .calculations-section {
     padding: 4rem 0;
-    background: linear-gradient(to bottom right, #f9fafb, #dbeafe);
+    background-color: #1A2C3F;
 }
 
 .calculations-grid {
@@ -257,7 +258,7 @@ body {
 }
 
 .calc-card {
-    background-color: white;
+    background-color: #2C3E50;
     padding: 1.5rem;
     border-radius: 0.75rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -280,19 +281,19 @@ body {
 }
 
 .calc-icon-indigo {
-    background-color: #e0e7ff;
+    background-color: #E5D9DF;
 }
 
 .calc-icon-purple {
-    background-color: #f3e8ff;
+    background-color: #F7E9DE;
 }
 
 .calc-icon-blue {
-    background-color: #dbeafe;
+    background-color: #D9E6F2;
 }
 
 .calc-icon-green {
-    background-color: #d1fae5;
+    background-color: #E1F2E7;
 }
 
 .icon {
@@ -301,31 +302,31 @@ body {
 }
 
 .calc-icon-indigo .icon {
-    color: #4f46e5;
+    color: #8D6A9B;
 }
 
 .calc-icon-purple .icon {
-    color: #9333ea;
+    color: #B38B67;
 }
 
 .calc-icon-blue .icon {
-    color: #2563eb;
+    color: #7C98B6;
 }
 
 .calc-icon-green .icon {
-    color: #059669;
+    color: #6AB78D;
 }
 
 .calc-card-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #111827;
+    color: #E0E0E0;
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
 .calc-card-description {
-    color: #4b5563;
+    color: #E0E0E0;
     text-align: center;
     font-size: 0.875rem;
 }
@@ -536,7 +537,7 @@ select.form-input:focus {
     color: #374151;
 }
 
-.results-content > * {
+.results-content>* {
     margin-bottom: 0.75rem;
 }
 
@@ -588,11 +589,11 @@ select.form-input:focus {
     .nav-title {
         font-size: 1.5rem;
     }
-    
+
     .container {
         padding: 0 1.5rem;
     }
-    
+
     .mobile-menu-content {
         padding: 0.5rem 0.75rem 0.75rem;
     }
@@ -603,35 +604,35 @@ select.form-input:focus {
     .nav-menu-desktop {
         display: block;
     }
-    
+
     .nav-toggle {
         display: none;
     }
-    
+
     .nav-menu-mobile {
         display: none !important;
     }
-    
+
     .hero-title {
         font-size: 3rem;
     }
-    
+
     .calculator-title {
         font-size: 2.25rem;
     }
-    
+
     .info-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .calculations-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .selector-buttons {
         grid-template-columns: repeat(4, 1fr);
     }
-    
+
     .form-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -642,15 +643,15 @@ select.form-input:focus {
     .container {
         padding: 0 2rem;
     }
-    
+
     .hero-title {
         font-size: 3.75rem;
     }
-    
+
     .calculator-title {
         font-size: 2.5rem;
     }
-    
+
     .calculations-grid {
         grid-template-columns: repeat(4, 1fr);
     }
