@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Anualidades Diferidas</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">      
-    @theme {        
-        --color-clifford: #da373d;      
-        }    
-    </style>
     <link rel="stylesheet" href="Estilo/style.css">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
@@ -83,7 +78,7 @@
             </div>
 
             <!-- Formulario de Cálculo -->
-            <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl shadow-lg p-8">
+            <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl shadow-lg p-8 mb-8">
                 <form id="calculadoraForm">
                     
                     <!-- Formulario para Calcular Monto -->
@@ -98,7 +93,7 @@
                             
                             <div>
                                 <label class="block text-gray-700 font-semibold mb-2">Tasa de Interés (%):</label>
-                                <input type="number" id="montotasa" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Ej: 5 para 5%" step="0.01">
+                                <input type="number" id="montotasa" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Ej: 0.05 para 5%" step="0.01">
                             </div>
                             
                             <div>
@@ -112,7 +107,7 @@
                             </div>
                         </div>
                         
-                        <button type="button" onclick="calcularMonto()" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-lg">
+                        <button type="button" id="btnCalcularMonto" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-lg">
                             Calcular Monto
                         </button>
                     </div>
@@ -228,7 +223,9 @@
 
                 </form>
             </div>
-
+            <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl shadow-lg p-8 hidden" id="resultado">
+                
+            </div>
             <!-- Área de Resultados -->
             <div id="resultadosArea" class="max-w-4xl mx-auto mt-8 hidden">
                 <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-indigo-600">
