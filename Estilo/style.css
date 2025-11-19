@@ -284,7 +284,7 @@ body {
    CALCULATIONS SECTION (Página Principal)
    ========================================== */
 .calculations-section {
-    padding: 4rem 0;
+    padding: 3rem 0;
     background-color: var(--fondo);
 }
 
@@ -647,6 +647,9 @@ select.form-input:focus {
     .mobile-menu-content {
         padding: 0.5rem 0.75rem 0.75rem;
     }
+    .calculations-grid{
+         grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 /* Tablets (768px+) */
@@ -703,6 +706,7 @@ select.form-input:focus {
     }
 
     .calculations-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem;
     }
 }
