@@ -22,7 +22,6 @@
                     <div class="nav-links">
                         <a href="../index.html" class="nav-link">Inicio</a>
                         <a href="calculadora.html" class="nav-link">Calculadora</a>
-                        <a href="#acerca" class="nav-link">Acerca de</a>
                     </div>
                 </div>
                 
@@ -43,7 +42,6 @@
             <div class="mobile-menu-content">
                 <a href="../index.html" class="mobile-link">Inicio</a>
                 <a href="calculadora.html" class="mobile-link">Calculadora</a>
-                <a href="#acerca" class="mobile-link">Acerca de</a>
             </div>
         </div>
     </nav>
@@ -75,9 +73,6 @@
                     <button id="btnPeriodos" class="calc-type-btn">
                         Calcular Períodos
                     </button>
-                    <button id="btnTasa" class="calc-type-btn">
-                        Calcular Tasa
-                    </button>
                 </div>
             </div>
 
@@ -97,7 +92,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label class="form-label">Tasa de Interés (%):</label>
+                                <label class="form-label">Tasa de Interés Capitalizada:</label>
                                 <input type="number" id="montotasa" class="form-input" placeholder="Ej: 0.05 para 5%" step="0.01">
                                 <span class="error-message" id="error-montotasa"></span>
                             </div>
@@ -140,7 +135,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label class="form-label">Tasa de Interés (%):</label>
+                                <label class="form-label">Tasa de Interés Capitalizada:</label>
                                 <input type="number" id="rentatasa" class="form-input" placeholder="Ej: 0.05 para 5%" step="0.01">
                                 <span class="error-message" id="error-rentatasa"></span>
                             </div>
@@ -175,7 +170,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label class="form-label">Tasa de Interés (%):</label>
+                                <label class="form-label">Tasa de Interés Capitalizada:</label>
                                 <input type="number" id="capitaltasa" class="form-input" placeholder="Ej: 0.05 para 5%" step="0.01">
                                 <span class="error-message" id="error-capitaltasa"></span>
                             </div>
@@ -224,7 +219,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label class="form-label">Tasa de Interés (%):</label>
+                                <label class="form-label">Tasa de Interés Capitalizada:</label>
                                 <input type="number" id="periodostasa" class="form-input" placeholder="Ej: 0.05 para 5%" step="0.01">
                                 <span class="error-message" id="error-periodostasa"></span>
                             </div>
@@ -240,48 +235,6 @@
                             Calcular Períodos
                         </button>
                     </div>
-
-                    <!-- Formulario para Calcular Tasa -->
-                    <div id="formTasa" class="calc-form hidden">
-                        <h4 class="form-title">Calcular Tasa de Interés</h4>
-                        
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label class="form-label">Renta (R):</label>
-                                <input type="number" id="tasarenta" class="form-input" placeholder="Ingrese la renta" step="0.01">
-                                <span class="error-message" id="error-tasarenta"></span>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Monto (M) o Capital (C):</label>
-                                <input type="number" id="tasamonto" class="form-input" placeholder="Valor futuro o presente" step="0.01">
-                                <span class="error-message" id="error-tasamonto"></span>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Tipo de Valor:</label>
-                                <select id="tasatipo" class="form-input">
-                                    <option value="monto">Monto (Valor Futuro)</option>
-                                    <option value="capital">Capital (Valor Presente)</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Número de Períodos (n):</label>
-                                <input type="number" id="tasaperiodos" class="form-input" placeholder="Número de pagos">
-                                <span class="error-message" id="error-tasaperiodos"></span>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Períodos Diferidos (k):</label>
-                                <input type="number" id="tasadiferidos" class="form-input" placeholder="Períodos de diferimiento">
-                                <span class="error-message" id="error-tasadiferidos"></span>
-                            </div>
-                        </div>
-                        
-                        <button type="button" id="btnCalcularTasa" class="form-submit btn-green">
-                            Calcular Tasa
-                        </button>
                     </div>
 
                 </form>

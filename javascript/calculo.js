@@ -15,15 +15,10 @@ document.getElementById('btnPeriodos').addEventListener('click', function() {
     cambiarFormulario('formPeriodos', this);
 });
 
-document.getElementById('btnTasa').addEventListener('click', function() {
-    cambiarFormulario('formTasa', this);
-});
-
 document.getElementById("btnCalcularMonto").addEventListener('click', calcularMonto);
 document.getElementById("btnCalcularRenta").addEventListener('click', calcularRenta);
 document.getElementById("btnCalcularCapital").addEventListener('click', calcularCapital);
 document.getElementById("btnCalcularPeriodos").addEventListener('click', calcularPeriodos);
-document.getElementById("btnCalcularTasa").addEventListener('click', calcularTasa);
 document.getElementById("btnLimpiar").addEventListener('click', limpiarCalculadora);
 
 function cambiarFormulario(formId, boton) {
@@ -193,14 +188,26 @@ function calcularMonto() {
     
     const formula = document.createElement('div');
     formula.innerHTML = "$$M = R \\left (\\frac{(1+i)^n - 1}{i} \\right) (1+i)^k$$";
+
+    const datos = document.createElement('div')
+    datos.innerHTML = `<h1>Datos:</h1><h2>R = ${R}</h2><h2>i = ${i}</h2><h2>n = ${n}</h2><h2>k = ${k}</h2>`
+
+    const sustitucion = document.createElement('div')
+    sustitucion.innerHTML = `$$M = ${R} \\left (\\frac{(1+${i})^{${n}} - 1}{${i}} \\right) (1+${i})^{${k}}$$`
     
+    const montoEncontrado = document.createElement('div')
+    montoEncontrado.innerHTML = `$$M = ${monto.toString()}$$`
+
     const resultado = document.createElement('h1');
     resultado.textContent = "El monto es de $" + monto.toString();
     
-    resultadosContenido.innerHTML = '';
-    resultadosContenido.appendChild(formula);
-    resultadosContenido.appendChild(resultado);
-    resultadosArea.classList.remove("hidden");
+    resultadosContenido.innerHTML = ''
+    resultadosContenido.appendChild(formula)
+    resultadosContenido.appendChild(datos)
+    resultadosContenido.appendChild(sustitucion)
+    resultadosContenido.appendChild(montoEncontrado)
+    resultadosContenido.appendChild(resultado)
+    resultadosArea.classList.remove("hidden")
     MathJax.typeset();
 }
 
@@ -227,22 +234,44 @@ function calcularRenta() {
     let renta;
     const formula = document.createElement('div');
     const resultado = document.createElement('h1');
+    const datos = document.createElement('div')
+    const sustitucion = document.createElement('div')
+    const rentaEncontrada = document.createElement('div')
     
     if (rentaTipo.value == "monto") {
         renta = CM / ( ( ((1+i)**n-1) / i) * (1+i)**k );
         renta = renta.toFixed(2);
+
         formula.innerHTML = "$$R = \\frac{M}{(\\frac{(1+i)^n -1}{i})(1+i)^k}$$";
+        
+        datos.innerHTML = `<h1>Datos:</h1><h2>M = ${CM}</h2><h2>i = ${i}</h2><h2>n = ${n}</h2><h2>k = ${k}</h2>`
+        
+        sustitucion.innerHTML = `$$R = \\frac{${CM}}{(\\frac{(1+${i})^{${n}} -1}{${i}})(1+${i})^{${k}}}$$`
+        
+        rentaEncontrada.innerHTML = `$$R = ${renta}$$`
+        
         resultado.textContent = "La renta es de $" + renta.toString();
     }
     else if (rentaTipo.value == "capital") {
         renta = CM / ( ( (1-(1+i)**-n) / i) * (1+i)**-k );
         renta = renta.toFixed(2);
+        
         formula.innerHTML = "$$R = \\frac{C}{(\\frac{1-(1+i)^{-n}}{i})(1+i)^{-k}}$$";
+
+        datos.innerHTML = `<h1>Datos:</h1><h2>C = ${CM}</h2><h2>i = ${i}</h2><h2>n = ${n}</h2><h2>k = ${k}</h2>`
+        
+        sustitucion.innerHTML = `$$R = \\frac{${CM}}{(\\frac{1-(1+${i})^{${-n}}}{${i}})(1+${i})^{${-k}}}$$`
+        
+        rentaEncontrada.innerHTML = `$$R = ${renta}$$`
+
         resultado.textContent = "La renta es de $" + renta.toString();
     }
     
     resultadosContenido.innerHTML = '';
     resultadosContenido.appendChild(formula);
+    resultadosContenido.appendChild(datos);
+    resultadosContenido.appendChild(sustitucion);
+    resultadosContenido.appendChild(rentaEncontrada);
     resultadosContenido.appendChild(resultado);
     resultadosArea.classList.remove("hidden");
     MathJax.typeset();
@@ -272,12 +301,24 @@ function calcularCapital() {
     
     const formula = document.createElement('div');
     formula.innerHTML = "$$C = R \\left (\\frac{1-(1+i)^{-n}}{i} \\right) (1+i)^{-k}$$";
+
+    const datos = document.createElement('div')
+    datos.innerHTML = `<h1>Datos:</h1><h2>R = ${R}</h2><h2>i = ${i}</h2><h2>n = ${n}</h2><h2>k = ${k}</h2>`
+
+    const sustitucion = document.createElement('div')
+    sustitucion.innerHTML = `$$C = ${R} \\left (\\frac{1-(1+${i})^{${-n}}}{${i}} \\right) (1+${i})^{${-k}}$$`
+    
+    const capitalEncontrado = document.createElement('div')
+    capitalEncontrado.innerHTML = `$$C = ${capital.toString()}$$`
     
     const resultado = document.createElement('h1');
     resultado.textContent = "El capital es de $" + capital.toString();
     
     resultadosContenido.innerHTML = '';
     resultadosContenido.appendChild(formula);
+    resultadosContenido.appendChild(datos);
+    resultadosContenido.appendChild(sustitucion);
+    resultadosContenido.appendChild(capitalEncontrado);
     resultadosContenido.appendChild(resultado);
     resultadosArea.classList.remove("hidden");
     MathJax.typeset();
@@ -305,164 +346,47 @@ function calcularPeriodos() {
     let periodos;
     const formula = document.createElement('div');
     const resultado = document.createElement('h1');
+    const datos = document.createElement('div')
+    const sustitucion = document.createElement('div')
+    const periodoEncontrado = document.createElement('div')
 
     if(periodosTipo.value == "monto"){
         periodos = 1 + i * (CM / (R * (1+i)**k));
         periodos = Math.log(periodos) / Math.log(1+i);
-        periodos = Math.round(periodos);
+        periodos = periodos.toFixed(2);
         formula.innerHTML = "$$n = \\frac{\\ln\\left( 1 + i \\frac{M}{R(1+i)^k} \\right)}{\\ln(1+i)}$$";
-        resultado.textContent = "El número de períodos es " + periodos.toString();
+
+        
+        datos.innerHTML = `<h1>Datos:</h1><h2>M = ${CM}</h2><h2>R = ${R}</h2><h2>i = ${i}</h2><h2>k = ${k}</h2>`
+        
+        sustitucion.innerHTML = `$$n = \\frac{\\ln\\left( 1 + ${i} \\frac{${CM}}{${R}(1+${i})^{${k}}} \\right)}{\\ln(1+${i})}$$`        
+        
+        periodoEncontrado.innerHTML = `$$n = ${periodos.toString()}$$`
+
+        resultado.textContent = "El número de períodos es " + periodos.toString() + " ≈ " + Math.round(periodos);
     }
     else if(periodosTipo.value == "capital" ){
         periodos = 1 - i * (CM / (R * (1+i)**(-k)));
         periodos = -Math.log(periodos) / Math.log(1+i);
-        periodos = Math.round(periodos);
+        periodos = periodos.toFixed(2);        
+
         formula.innerHTML = "$$n = -\\frac{\\ln\\left( 1 - i \\frac{C}{R(1+i)^{-k}} \\right)}{\\ln(1+i)}$$";
-        resultado.textContent = "El número de períodos es " + periodos.toString();
+
+        datos.innerHTML = `<h1>Datos:</h1><h2>C = ${CM}</h2><h2>R = ${R}</h2><h2>i = ${i}</h2><h2>k = ${k}</h2>`
+
+        sustitucion.innerHTML = `$$n = -\\frac{\\ln\\left( 1 - ${i} \\frac{${CM}}{${R}(1+${i})^{${-k}}} \\right)}{\\ln(1+${i})}$$`        
+        
+        periodoEncontrado.innerHTML = `$$n = ${periodos.toString()}$$`
+
+        resultado.textContent = "El número de períodos es " + periodos.toString() + " ≈ " + Math.round(periodos);
     }
     
     resultadosContenido.innerHTML = '';
     resultadosContenido.appendChild(formula);
+    resultadosContenido.appendChild(datos);
+    resultadosContenido.appendChild(sustitucion);
+    resultadosContenido.appendChild(periodoEncontrado);
     resultadosContenido.appendChild(resultado);
     resultadosArea.classList.remove("hidden");
     MathJax.typeset();
-}
-
-// NUEVA FUNCIÓN PARA CALCULAR TASA DE INTERÉS
-function calcularTasa() {
-    limpiarErrores();
-    
-    const validaciones = [
-        validarCampo('tasarenta', tasaRenta.value, 'Renta', { mayorQueCero: true }),
-        validarCampo('tasamonto', tasaMonto.value, 'Monto/Capital', { mayorQueCero: true }),
-        validarCampo('tasaperiodos', tasaPeriodos.value, 'Número de Períodos', { mayorQueCero: true, entero: true }),
-        validarCampo('tasadiferidos', tasaDiferidos.value, 'Períodos Diferidos', { noNegativo: true, entero: true })
-    ];
-    
-    if (validaciones.includes(false)) {
-        return;
-    }
-
-    const R = Number(tasaRenta.value);
-    const CM = Number(tasaMonto.value);
-    const n = Number(tasaPeriodos.value);
-    const k = Number(tasaDiferidos.value);
-    
-    // Método de Newton-Raphson para encontrar la tasa
-    // Este es un método iterativo para resolver ecuaciones no lineales
-    let tasa;
-    const formula = document.createElement('div');
-    const resultado = document.createElement('h1');
-    const info = document.createElement('p');
-    info.style.fontSize = '0.9em';
-    info.style.color = '#666';
-    info.style.marginTop = '10px';
-    
-    if(tasaTipo.value == "monto") {
-        // Para Monto: M = R * (((1+i)^n - 1) / i) * (1+i)^k
-        tasa = Math.abs(tasaPorMonto(R, CM, n, k));
-        formula.innerHTML = "$$M = R \\left (\\frac{(1+i)^n - 1}{i} \\right) (1+i)^k$$";
-        info.textContent = "Nota: La tasa se calculó usando el método iterativo Newton-Raphson";
-    }
-    else if(tasaTipo.value == "capital") {
-        // Para Capital: C = R * ((1-(1+i)^-n) / i) * (1+i)^-k
-        tasa = Math.abs(tasaPorCapital(R, CM, n, k));
-        formula.innerHTML = "$$C = R \\left (\\frac{1-(1+i)^{-n}}{i} \\right) (1+i)^{-k}$$";
-        info.textContent = "Nota: La tasa se calculó usando el método iterativo Newton-Raphson";
-    }
-    
-    if (tasa !== null) {
-        const tasaPorcentaje = (tasa * 100).toFixed(4);
-        resultado.textContent = `La tasa de interés es: ${tasa.toFixed(6)} (${tasaPorcentaje}%)`;
-    } else {
-        resultado.textContent = "No se pudo calcular la tasa. Verifique los valores ingresados.";
-        resultado.style.color = '#d9534f';
-    }
-    
-    resultadosContenido.innerHTML = '';
-    resultadosContenido.appendChild(formula);
-    resultadosContenido.appendChild(resultado);
-    resultadosContenido.appendChild(info);
-    resultadosArea.classList.remove("hidden");
-    MathJax.typeset();
-}
-
-// Método Newton-Raphson para hallar la tasa con la fórmula de Monto (Valor Futuro)
-function tasaPorMonto(R, M, n, k) {
-    let i = 0.05; // Valor inicial 5%
-    const tolerancia = 1e-10;
-    const maxIter = 1000;
-
-    for (let iter = 0; iter < maxIter; iter++) {
-        // Evitar tasas negativas
-        if (i <= -0.99) i = 0.01;
-
-        const A = Math.pow(1 + i, n);
-        const B = Math.pow(1 + i, k);
-
-        const f = R * ((A - 1) / i) * B - M;
-
-        // Derivada numérica estable
-        const h = 1e-6;
-        const i_h = i + h;
-        const A_h = Math.pow(1 + i_h, n);
-        const B_h = Math.pow(1 + i_h, k);
-
-        const f_h = R * ((A_h - 1) / i_h) * B_h - M;
-
-        const f_deriv = (f_h - f) / h;
-
-        // Evitar división por derivadas casi cero
-        if (Math.abs(f_deriv) < 1e-12) break;
-
-        let i_new = i - f / f_deriv;
-
-        // Limitar valores explosivos
-        if (!isFinite(i_new) || Math.abs(i_new) > 1) i_new = i / 2;
-
-        if (Math.abs(i_new - i) < tolerancia) return i_new;
-
-        i = i_new;
-    }
-
-    return null; // No converge
-}
-
-
-// Método Newton-Raphson para hallar la tasa con la fórmula de Capital (Valor Presente)
-function tasaPorCapital(R, C, n, k) {
-    let i = 0.05; // Valor inicial 5%
-    const tolerancia = 1e-10;
-    const maxIter = 1000;
-
-    for (let iter = 0; iter < maxIter; iter++) {
-        if (i <= -0.99) i = 0.01;
-
-        const A = Math.pow(1 + i, -n);
-        const B = Math.pow(1 + i, -k);
-
-        const f = R * ((1 - A) / i) * B - C;
-
-        const h = 1e-6;
-        const i_h = i + h;
-
-        const A_h = Math.pow(1 + i_h, -n);
-        const B_h = Math.pow(1 + i_h, -k);
-
-        const f_h = R * ((1 - A_h) / i_h) * B_h - C;
-
-        const f_deriv = (f_h - f) / h;
-
-        if (Math.abs(f_deriv) < 1e-12) break;
-
-        let i_new = i - f / f_deriv;
-
-        if (!isFinite(i_new) || Math.abs(i_new) > 1) i_new = i / 2;
-
-        if (Math.abs(i_new - i) < tolerancia) return i_new;
-
-        i = i_new;
-    }
-
-    return null;
 }
